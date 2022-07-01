@@ -1,5 +1,6 @@
 <?php
 session_start();
+// session_destroy();
 
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -34,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
     if(isset($_POST['Remove_Item']))
     {
-        header("location:index.php");
+        header("location:shoping-cart.php");
 
         foreach($_SESSION['cart'] as $key =>$value)
         {
@@ -46,6 +47,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 alert('Item Removed');
                 window.location.href='mycart.php';
                 </script>";
+
             }
         }
     }

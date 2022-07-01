@@ -64,7 +64,7 @@ if (isset($_SESSION["admin"])) {
         <!-- Logo -->
         <div class="logo-sn ms-d-block-lg">
             <a class="pl-0 ml-0 text-center" href="../index.php">
-                <img src="assets/img/costic/costic-logo-216x62.png" alt="logo">
+                <img src="assets/img/name.jpg" height="60px" width="80px" alt="logo">
             </a>
         </div>
         <!-- Navigation -->
@@ -98,22 +98,21 @@ if (isset($_SESSION["admin"])) {
                     </li>
                     <li> <a href="view_item.php">View Items</a>
                     </li>
-                    <li> <a href="update_item.php">Edit Items</a>
-                    </li>
+
 
                 </ul>
             </li>
             <!-- Items end -->
             <!-- orders -->
             <li class="menu-item">
-                <a href="pages/orders.html"> <span><i class="fas fa-clipboard-list fs-16"></i>Orders</span>
+                <a href="order.php"> <span><i class="fas fa-clipboard-list fs-16"></i>Orders</span>
                 </a>
             </li>
             <!-- orders end -->
 
             <!-- Invoice -->
             <li class="menu-item">
-                <a href="pages/invoice/invoicelist.html"> <span><i class="fas fa-file-invoice fs-16"></i>Invoice </span>
+                <a href="invoice.php"> <span><i class="fas fa-file-invoice fs-16"></i>invoices </span>
                 </a>
 
             </li>
@@ -133,49 +132,44 @@ if (isset($_SESSION["admin"])) {
     </aside>
 
     <!-- Main Content -->
-    <main class="body-content">
-        <!-- Navigation Bar -->
-        <nav class="navbar ms-navbar">
-            <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft"> <span class="ms-toggler-bar bg-primary"></span>
-                <span class="ms-toggler-bar bg-primary"></span>
-                <span class="ms-toggler-bar bg-primary"></span>
-            </div>
+    <!-- <main class="body-content"> -->
+    <!-- Navigation Bar -->
+    <nav class="navbar ms-navbar">
+        <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft"> <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+        </div>
 
-            <div class="logo-sn logo-sm ms-d-block-sm">
-                <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="assets/img/costic/costic-logo-84x41.png" alt="logo"> </a>
-            </div>
-            <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
-                <li class="ms-nav-item ms-search-form pb-0 py-0">
-                    <form class="ms-form" method="post">
-                        <div class="ms-form-group my-0 mb-0 has-icon fs-14">
-                            <input type="search" class="ms-form-input" name="search" placeholder="Search here..." value=""> <i class="flaticon-search text-disabled"></i>
-                        </div>
-                    </form>
-                </li>
-                <li class="ms-nav-item ms-nav-user dropdown">
-                    <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="ms-user-img ms-img-round float-right" src="assets/img/costic/customer-6.jpg" alt="people">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
-                        <li class="dropdown-menu-footer">
-                            <a class="media fs-14 p-2" href="../logout.php"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options"> <span class="ms-toggler-bar bg-primary"></span>
-                <span class="ms-toggler-bar bg-primary"></span>
-                <span class="ms-toggler-bar bg-primary"></span>
-            </div>
-        </nav>
-        <div class="ms-content-wrapper">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="db-header-title">Welcome <?php echo $name ?></h1>
-                </div>
+        <div class="logo-sn logo-sm ms-d-block-sm">
+            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="assets/img/costic/costic-logo-84x41.png" alt="logo"> </a>
+        </div>
+        <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+            <li class="ms-nav-item ms-search-form pb-0 py-0">
+                <form class="ms-form" method="post">
+                    <div class="ms-form-group my-0 mb-0 has-icon fs-14">
+                        <input type="search" class="ms-form-input" name="search" placeholder="Search here..." value=""> <i class="flaticon-search text-disabled"></i>
+                    </div>
+                </form>
+            </li>
+            <li class="ms-nav-item ms-nav-user dropdown">
+                <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="ms-user-img ms-img-round float-right" src="assets/img/people/admin.png" alt="people">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+                    <li class="dropdown-menu-footer">
+                        <a class="media fs-14 p-2" href="../logout.php"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options"> <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+            <span class="ms-toggler-bar bg-primary"></span>
+        </div>
+    </nav>
 
-    </main>
+    <!-- </main> -->
     <!-- MODALS -->
     </div>
     </aside>

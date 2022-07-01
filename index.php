@@ -35,13 +35,12 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Humberger Begin -->
     <?php require 'comps/nav.php' ?>
-    <?php require 'dbcon.php' ?>
     
     <!-- Header Section End -->
 
@@ -50,7 +49,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="hero__categories">
+                    <!-- <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
@@ -68,20 +67,20 @@
                             <li><a href="#">Oatmeal</a></li>
                             <li><a href="#">Fresh Bananas</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
+                                <!-- <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
-                                </div>
+                                </div> -->
                                 <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
-                        </div>
+                        <!-- </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>
@@ -90,16 +89,16 @@
                                 <h5>+65 11.188.888</h5>
                                 <span>support 24/7 time</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <!-- <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
                             <a href="#" class="primary-btn">SHOP NOW</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -162,149 +161,57 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                               <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-1">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>   
-                    </div>
-                    </div>
-                </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+            
+                <?php
+
+                function Display_card($name,$price,$img){
+                    echo '<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-2">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
+                        <div class="featured__item">
+                            <div class="featured__item__pic set-bg" data-setbg="">
+                                <ul class="featured__item__pic__hover">
+                                   <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
+                                    <input type="hidden" name="Item_Name" value="'.$name.'">
+                                    <input type="hidden" name="Item_Price" value='.$price.'>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a href="#">'.$name.'</a></h6>
+                                <h5>'.$price.'</h5>   
                         </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
                         </div>
-                    </div>
                     </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-3">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-4">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-5">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-6">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-7">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-                    <form action="manage_cart.php" method="POST">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
-                                <input type="hidden" name="Item_Name" value="feature-8">
-                                <input type="hidden" name="Item_Price" value="30">
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>Rs.30.00</h5>
-                        </div>
-                    </div>
-                    </form>
-                </div>
+                    </div>';
+                }
+                    require 'dbcon.php';
+                    $sql="select * from items;";
+                    $result= mysqli_query($con,$sql);
+                    while($row= mysqli_fetch_assoc($result)){
+                        $id = $row['item_id'];
+                        $name = $row['item_name'];
+                        $price = $row['item_price'];
+                        $img = $row['image'];
+                        Display_card($name,$price,$img);
+                    }
+
+                ?>
+                
             </div>
+            
         </div>
     </section>
 
+    <?php
+       $connection =mysql_connect("localhost", "root" , "");
+       $sqlimage = "SELECT * FROM userdetail where `id` = '".$id1."";
+      $imageresult1 = mysql_query($sqlimage,$connection);
 
+      while($rows = mysql_fetch_assoc($imageresult1))
+    {       
+       echo'<img height="300" width="300" src="data:image;base64,'.$rows['image'].'">';
+    }
+    ?MU NAME IS JYOPT6IM KASHYAP>
     <!-- Featured Section End -->
-
     <!-- Banner Begin -->
     <!-- <div class="banner">
         <div class="container">
@@ -543,8 +450,5 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-
-
 </body>
-
 </html>

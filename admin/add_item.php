@@ -7,6 +7,7 @@ if (isset($_SESSION["admin"])) {
 } else {
     header("location:index.php");
 }
+
 // $sql = "SELECT * FROM `category`";
 // $all_categories = mysqli_query($con,$sql);
 // if (isset($_POST['submit'])) 
@@ -14,14 +15,29 @@ if (isset($_SESSION["admin"])) {
 //     $name = mysqli_real_escape_string($con,$_POST['item_name']); 
 //      $id = mysqli_real_escape_string($con,$_POST['cat_id']); 
 //     $sql =  "INSERT INTO `items`(`item_id`,`item_name`,`item_price`,`item_desc`, `cat_id`) VALUES ('$name','$id')";
-
 // }
 if (isset($_POST['submit'])) {
-    $item_id = $_POST['item_id'];
     $item_name = $_POST['item_name'];
     $item_price = $_POST['item_price'];
     $item_desc = $_POST['item_desc'];
-    $sql = "INSERT INTO `items`(`item_id`, `item_name`, `item_price`, `item_desc`, `cat_id`) VALUES ('$item_id','$item_name','$item_price','$item_desc','2')";
+// Code to Upload Image to Directory and Location to Database
+    $output_dir = "../upload/";/* Path for file upload */
+	$RandomNum   = time();
+	$ImageName      = str_replace(' ','-',strtolower($_FILES['image']['name'][0]));
+	$ImageType      = $_FILES['image']['type'][0];
+ 
+	$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+	$ImageExt       = str_replace('.','',$ImageExt);
+	$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+	$NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+    $ret[$NewImageName]= $output_dir.$NewImageName;
+    /* Try to create the directory if it does not exist */
+	if (!file_exists($output_dir))
+	{
+		@mkdir($output_dir, 0777);
+	}    
+    move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName );
+    $sql = "INSERT INTO `items`(`item_name`, `item_price`, `item_desc`, `cat_id`,`image`) VALUES ('$item_name','$item_price','$item_desc','2','$NewImageName')";
 
     $q = mysqli_query($con, $sql);
     if ($q > 0) {
@@ -30,6 +46,7 @@ if (isset($_POST['submit'])) {
         echo "Category ID Already Exist ";
     }
 }
+
 ?>
 <html>
 
@@ -44,18 +61,10 @@ if (isset($_POST['submit'])) {
                             <h6>Add Items</h6>
                         </div>
                         <div class="ms-panel-body">
-                            <form action="" method="POST" class="needs-validation clearfix" novalidate>
+                            <form action="" method="POST" enctype="multipart/form-data" class="needs-validation clearfix" novalidate>
 
                                 <div class="form-row">
-                                    <div class="col-md-12 mb-3">
-                                        <label for="validationCustom18">Item id</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" required type="text" id="item_id" name="item_id">
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
                                             <label for="validationCustom18">Item Name</label>
@@ -88,14 +97,14 @@ if (isset($_POST['submit'])) {
                                             </div>
                                         </div>
 
-                                        <!-- <div class="col-md-12 mb-3">
-                                        <label for="validationCustom12">Item Image</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="validatedCustomFile">
-                                            <label class="custom-file-label" for="validatedCustomFile">Upload Images...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="validationCustom12">Item Image</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="image[]">
+                                                <label class="custom-file-label" for="validatedCustomFile">Upload Images...</label>
+                                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                            </div>
                                         </div>
-                                    </div> -->
                                     </div>
                                 </div>
                                 <div class="ms-panel-header new">
