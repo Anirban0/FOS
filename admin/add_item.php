@@ -29,9 +29,10 @@ if (isset($_POST['submit'])) {
 	$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
 	$ImageExt       = str_replace('.','',$ImageExt);
 	$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
-	$NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+	$NewImageName = $ImageName.'.'.$ImageExt;
     $ret[$NewImageName]= $output_dir.$NewImageName;
     /* Try to create the directory if it does not exist */
+    // RandomNum
 	if (!file_exists($output_dir))
 	{
 		@mkdir($output_dir, 0777);

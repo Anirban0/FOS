@@ -227,7 +227,7 @@
                 </div>
             </div>
         </div>
-    </section> --> -->
+    </section> -->
     <!-- Shoping Cart Section End -->
 
 
@@ -241,7 +241,6 @@
             <table class="table">
             <thead class="text-center">
                 <tr>
-                <th scope="col">Serial Number</th>
                 <th scope="col">Item Name</th>
                 <th scope="col">Item Price</th>
                 <th scope="col">Quantity</th>
@@ -255,13 +254,15 @@
                     {
                         foreach($_SESSION['cart'] as $key => $value)
                         {
+                            
                             $total=$total+$value['Price'];
+                            $_SESSION['cart_total']= $total;
                           
                            echo "<tr>
-                                <td>1</td>
+                                
                                 <td>$value[Item_Name]</td>
                                 <td>$value[Price]</td>
-                                <td> <input class='text-center' type='number' value='$value[Quantity]' </td>
+                                <td> <input class='text-center' type='number' value='$value[Quantity]' disabled > </td>
                                 <td>
                                 <form action='manage_cart.php' method='post'>
                                 <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>REMOVE</button>
@@ -269,24 +270,16 @@
                                 </form></td>
                             </tr>";
                         }
-
                     }
-                    
-                    
-                    
                     ?>
                 </tbody>
             </table>
         </div>
         <div class="col-lg-4">
             <div class='border bg-light rounded p-4'>
-            <h4>TOTAL:</h4>
-            <h5 class="text-right">
-                <?php echo $total ?> 
-            </h5>
-            <br>
-            <form >
-                <button class="btn btn-outline-success btn-block ">Make Purchase</button>
+            
+            <form action="Manage_Cart.php" method="post" >
+                <button class="btn btn-outline-success btn-block " name="Make_Purchase">Make Purchase</button>
             </form>
             </div>
         </div>
