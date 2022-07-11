@@ -292,7 +292,7 @@
    </div>
 
     <!-- Footer Section Begin -->
-    <?php require 'footer.php'?>
+    
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->

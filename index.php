@@ -75,7 +75,7 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="search.php" method="POST">
+                            <form action="index.php" method="POST">
                                 <!-- <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
@@ -227,10 +227,32 @@ if(isset($_SESSION['cart_already_added_alert']))
                     </form>
                     </div>';
                 }
+
+                if(isset($_POST['search']))
+                {
+                    include "dbcon.php";
+                    $search = $_POST['search'];
+                    $show_items = mysqli_query($con, "SELECT * FROM `items` where item_name like '%$search%'");
+            while($row = mysqli_fetch_assoc($show_items))
+            {
+               
+                $item_id = $row['item_id'];
+                $item_name = $row['item_name'];
+                $item_price = $row['item_price'];
+                $item_desc = $row['item_desc'];
+                $image = $row['image'];
+                Display_card($item_id,$item_name,$item_price,$image);
+            }
+
+                }
+                else
+                {
+
                     require 'dbcon.php';
                     $sql="select * from items;";
                     $result= mysqli_query($con,$sql);
-                    while($row= mysqli_fetch_assoc($result)){
+                    while($row= mysqli_fetch_assoc($result))
+                    {
                         $id = $row['item_id'];
                         $name = $row['item_name'];
                         $price = $row['item_price'];
@@ -238,6 +260,7 @@ if(isset($_SESSION['cart_already_added_alert']))
                         Display_card($id,$name,$price,$img);
                     }
                     
+                }
                 ?>
                 
             </div>
