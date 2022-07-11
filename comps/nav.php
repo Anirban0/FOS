@@ -139,22 +139,20 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="./shop-grid.php">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <!-- <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.php">Shop Details</a></li>
                                     <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="./checkout.php">Check Out</a></li>
                                     <li><a href="./blog-details.php">Blog Details</a></li>
-                                    <li><a href="./logout.php">Log out</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="./blog.php">Blog</a></li>
+                            </li> -->
+                           
                             <li><a href="./contact.php">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <div class="header__cart">
                         <ul>
                             <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i><span><?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} ?></span></a></li>
@@ -192,4 +190,43 @@
             </div>
         </div>
     </header>
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit & Nut Gifts</a></li>
+                            <li><a href="#">Fresh Berries</a></li>
+                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="#">Butter & Eggs</a></li>
+                            <li><a href="#">Fastfood</a></li>
+                            <li><a href="#">Fresh Onion</a></li>
+                            <li><a href="#">Papayaya & Crisps</a></li>
+                            <li><a href="#">Oatmeal</a></li>
+                            <li><a href="#">Fresh Bananas</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="index.php" method="POST">
+                                
+                                <input type="text" placeholder="What do yo u need?" name="search">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     

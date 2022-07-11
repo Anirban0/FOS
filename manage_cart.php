@@ -94,9 +94,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $order_id=rand();
         $user_id=$_SESSION['usr_id'];
         $subtotal=$_POST['subtotal'];
-        $qry_order= "INSERT INTO `orders` (`order_id`, `cust_id`, `amount`, `date`,`payment_mode`,`status`) VALUES ('$order_id',$user_id,'$subtotal','$date',1,2)";
-        $result = mysqli_query($con,$qry_order);
+        if($_POST['Payment']=='cod')
+        {
+            $payment=1;
+        }
+        else
+        {
+            $payment=2;
+        }
 
+        $qry_order= "INSERT INTO `orders` (`order_id`, `cust_id`, `amount`, `date`,`payment_mode`,`status`) VALUES ('$order_id',$user_id,'$subtotal','$date','$payment',2)";
+        $result = mysqli_query($con,$qry_order);
+       
         foreach($_SESSION['cart'] as $key =>$value)
                                 {
                                     
@@ -115,6 +124,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         if($result)
         {   
             header("location:placed.php");
+        }
+        else
+        {
+            echo 'oops something went wrong';
         }
     //    echo "<script> 
     //            alert('order is placed');
