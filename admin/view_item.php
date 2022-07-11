@@ -25,8 +25,10 @@ if (isset($_SESSION["admin"])) {
                 <table class="table table-hover thead-primary">
                     <thead>
                         <tr>
+                            <th scope="col">Image</th>
                             <th scope="col">Items ID</th>
                             <th scope="col">Items Name</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Items Description</th>
                             <th scope="col">Items Price</th>
                             <th scope="col">Edit</th>
@@ -35,15 +37,17 @@ if (isset($_SESSION["admin"])) {
                     <tbody>
                         <?php
                         $i = 0;
-                        while ($row = mysqli_fetch_array($view_items)) {
+                        while ($row = mysqli_fetch_assoc($view_items)) {
 
                         ?>
                             <tr>
+                                <th><img  src="../upload/<?php echo $row['image']; ?>"></th>    
                                 <th scope="row"><?php echo $row["item_id"]; ?></th>
                                 <td><?php echo $row["item_name"]; ?></td>
+                                <td> <?php echo $row["cat_id"]; ?></td>
                                 <td> <?php echo $row["item_desc"]; ?></td>
                                 <td> <?php echo $row["item_price"]; ?></td>
-                                <td><span class="badge badge-primary"><button><a href="update_process.php?id=<?php echo $row["cat_id"]; ?>"> update</a></button></span></td>
+                                <td><span class="badge badge-primary"><button><a href="update_item.php?id=<?php echo $row["item_id"]; ?>"> Manage</a></button></span></td>
 
                             </tr>
                         <?php

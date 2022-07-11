@@ -1,10 +1,8 @@
 <?php session_start();
     
 // session_destroy();
-
-
-
 ?>
+
 <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
@@ -30,20 +28,8 @@
             <div class="header__top__right__auth">
                 <?php
                 if(isset($_SESSION['username'])){
-                    echo '<div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   '.$_SESSION['name'].'
-                                </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                        </div>';
                     
-                    
+                    echo $_SESSION['name'];
                 } 
                 else{
                     
@@ -157,24 +143,13 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i><span><?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} ?></span></a></li>
+                            <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                         <div class="header__top__right__auth">
                                         <?php
                                 if(isset($_SESSION['name'])){
                                     
-                                   // echo '<a href="/ogani-master/login.php"><i class="fa fa-user"></i>'.$_SESSION['name'].'</a>';
-                                   echo '<nav class="header__menu">
-                                            <ul>
-                                            <li><a href="#">'.$_SESSION['name'].'</a>
-                                            <ul class="header__menu__dropdown">
-                                                <li><a href="./logout.php">Log out</a></li>
-                                            </ul>
-                                        </li>
-                                        </ul>
-                                        </nav>
-                               
-                               ';
+                                    echo $_SESSION['name'];
                                 } 
                                 else{
                                     

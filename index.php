@@ -75,12 +75,12 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form action="search.php" method="POST">
                                 <!-- <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div> -->
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do yo u need?" name="search">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         <!-- </div>
@@ -106,6 +106,37 @@
             </div>
         </div>
     </section>  
+    <?php
+
+    if(isset($_SESSION['cart_added_alert']))
+{
+    if($_SESSION['cart_added_alert']==true)
+    {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success</strong> Item added to cart successfully.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+        $_SESSION['cart_added_alert']=false;
+    }
+}
+if(isset($_SESSION['cart_already_added_alert']))
+{
+    if($_SESSION['cart_already_added_alert']==true)
+    {
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>OOPS</strong> Item already added to cart.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>';
+            $_SESSION['cart_already_added_alert']=false;
+    }
+    
+
+}
+?>
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
@@ -176,7 +207,7 @@
                                    <button type="submit" name ="Add_To_Cart" class="btn btn-info">Add to Cart</button>
                                     <input type="hidden" name="Item_Name" value="'.$name.'">
                                     <input type="hidden" name="Item_Price" value='.$price.'>
-                                    <input type="hidden" name="Item_id" value='.$id.'>
+                                    <input type="hidden" name="Item_Id" value='.$id.'>
                                         
                                 </ul>
                                 
@@ -185,7 +216,7 @@
                             </div>
                             <div class="featured__item__text">
                                 <h6><a href="#">'.$name.'</a></h6>
-                                <h5>'.$price.'</h5>
+                                <h5>Rs.'.$price.'</h5>
                                 <div class="quantity buttons_added">
 	                                    <input type="button" value="-" class="minus">
                                             <input type="number" step="1" min="1" max="" name="Quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">

@@ -94,6 +94,7 @@ session_start();
                 if ($row['cust_password'] == $password) {
                   $_SESSION['username']=$_POST['username'];
                   $_SESSION['name']=$row['cust_fname'];
+                  $_SESSION['usr_id']=$row['cust_id'];
                   header("location:index.php");
                 }
               }

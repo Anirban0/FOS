@@ -26,9 +26,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Humberger Begin -->
     <!-- Humberger End -->
@@ -255,7 +255,8 @@
                         foreach($_SESSION['cart'] as $key => $value)
                         {
                             
-                            $total=$total+$value['Price'];
+                            $item_total=$value['Price']*$value['Quantity'];
+                            $total=$total+$item_total;
                             $_SESSION['cart_total']= $total;
                           
                            echo "<tr>
@@ -275,14 +276,18 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-4">
-            <div class='border bg-light rounded p-4'>
+        <?php 
+
+                echo    '<div class="col-lg-4">
+                        <div class="border bg-light rounded p-4">
+                        <form action="Manage_Cart.php" method="post" >
+                        <button class="site-btn btn-block " name="Make_Purchase">Make Purchase</button>
+                        </form>
+                        </div>
+                        </div>';
             
-            <form action="Manage_Cart.php" method="post" >
-                <button class="btn btn-outline-success btn-block " name="Make_Purchase">Make Purchase</button>
-            </form>
-            </div>
-        </div>
+        
+        ?>
     </div>
    </div>
 

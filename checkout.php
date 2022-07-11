@@ -109,9 +109,8 @@
         <div class="container">
             <div class="checkout__form">
                 <h4>Billing Details</h4>
-                <form action="#">
+                <form action="manage_cart.php" method="POST">
                     <div class="row align-center">
-                        
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
                                 <h4>Your Order</h4>
@@ -119,7 +118,8 @@
                                 <ul><?php 
                                 foreach($_SESSION['cart'] as $key =>$value)
                                 {
-                                    echo '<li>'.$value['Item_Name'].' (x'.$value['Quantity'].')<span>Rs.'.$value['Price'].'</span></li>';
+                                    $item_total=$value['Quantity']*$value['Price'];
+                                    echo '<li>'.$value['Item_Name'].' (x'.$value['Quantity'].')<span>Rs.'.$item_total.'</span></li>';
 
                                 }
                                     ?>  
@@ -132,17 +132,20 @@
                                     $subtotal =$gst+$_SESSION['cart_total'];
                                     echo '<div class="checkout__order__subtotal">Cart Total <span>Rs.'.$_SESSION['cart_total'].'</span></div>
                                     <div class="checkout__order__subtotal">GST(5%) <span>'.$gst.'</span></div>
-                                    <div class="checkout__order__total">Subotal <span>'.$subtotal.'</span></div>';
-                                ?>
-                                
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" name="Place_order" class="site-btn">PLACE ORDER</button>
+                                    <div class="checkout__order__total">Subotal <span>'.$subtotal.'</span></div>
+                                    <div class="checkout__input__checkbox">
+                                        <label for="paypal">
+                                            Paypal
+                                            <input type="checkbox" id="paypal">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" name="Place_Order" class="site-btn">PLACE ODER</button>
+                                    <input type="hidden" name="subtotal" value="'.$subtotal.'">
+                                    ';
+                                    ?>
+                                    
+
                             </div>
                         </div>
                     </div>
